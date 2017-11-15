@@ -57,12 +57,13 @@ All the access rights and transactions are registered on the Blockchain
 
 **Architecture**
 
-Find below the application architecture used for the development of PoC
+**Overall Process Flow
 
+<img src="https://github.com/knc331/Proffer2k17/blob/master/Overview.PNG" />
+
+**Find below the application architecture used for the development of PoC
+<img src="https://github.com/knc331/Proffer2k17/blob/master/Architecture.png" />
  
-
- 
-
 ** **
 
 **Features of Blockchain Based KYC model-**
