@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+	<title>Identity Portal</title>
+<link rel="shortcut icon" type="image/ico" href="/images/favicon.ico"/>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/login.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" ></script>
+<script>
+function Fillin()
+{
+	//alert(123);
+	page = document.getElementById("inlineFormCustomSelect");
+	option = page.options[page.selectedIndex].value;
+	if (option == 1 || option == 2 || option == 3){
+		document.getElementById("email").value = "user@blockchain.io";
+		document.getElementById("pass").value = "user@blockchain.io";
+		}
+		//document.location = "User.html";}
+	else if (option == 4){
+		document.getElementById("email").value = "authority@blockchain.io";
+		document.getElementById("pass").value = "authority@blockchain.io";}
+		//document.location = "Authorizer.html";}
+	else if (option == 5){
+		document.getElementById("email").value = "govtauthority@blockchain.io";
+		document.getElementById("pass").value = "govtauthority@blockchain.io";}
+		//document.location = "Govt.html";}
+	//alert(option);
+	else if (option == 6){
+		document.getElementById("email").value = "serviceprovider@blockchain.io";
+		document.getElementById("pass").value = "serviceprovider@blockchain.io";}
+}
+function Login()
+{
+	//alert(123);
+  var keys = ["0x8675e44c117fd659ab2c016d46371eea619d9863","0x7e109703e3eb3f8bfe85508b69c9e1802ca52e37","0xe208914454c16c7a2cd561071519bea9207dda59","0x143a18228298e7a38427861a2840dbf061e3fc49","0xec5f7a1ff1935e63c09d6bcc4441209d2e6afa94","0x93493d8799f6f2eabd5c651083b5f3264b3ffea6"];
+
+	page = document.getElementById("inlineFormCustomSelect");
+	option = page.options[page.selectedIndex].value;
+	if (option == 1){
+		document.location = "User.html";
+			sessionStorage.setItem('account',keys[4]);}
+	else if (option == 2){
+		document.location = "User.html";sessionStorage.setItem('account',keys[1]);}
+	else if (option == 3){
+		document.location = "User.html";sessionStorage.setItem('account',keys[2]);}
+	else if (option == 4){
+		document.location = "Authority.html";sessionStorage.setItem('account',keys[3]);}
+	//alert(option);
+	else if (option == 5){
+		document.location = "Govt.html";sessionStorage.setItem('account',keys[0]);}
+	//alert(option);
+	else if (option == 6){
+		document.location = "#";sessionStorage.setItem('account',keys[5]);}
+	//alert(option);
+}
+
+</script>
+</head>
+<body>
+
+<div class="container col-md-4">
+<div class="row">
+  <div class="col-md-12">
+  <!-- Start of Login Form -->
+     <div id="login-form">
+        <form method="post" >    <br><br>      
+             <div class="form-group">
+                 <h2 class="">Login</h2>
+                 <hr />
+              </div>
+ <form class="form-inline" method="post">
+ 
+<div style="margin-bottom: 5px;">
+
+   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" onblur="Fillin()">
+    <option selected> Select Role</option>
+    <option value="1" adress="0x1ae1c221add6413ec3e627b0e465af4f95010806" id="user1">User 1</option>
+    <option value="2" adress="0x7623b5bb48c6484c87c85fcc237567f55c9183ab" id="user2">User 2</option>
+    <option value="3" adress="0xee9bb304061829b78394277f9c2f011d1f831afb" id="user3">User 3</option>
+    <option value="4" address="0x517b79741c9faae6bab3d3cc606b820da7888685" id="auth">Authoriser</option>
+    <option value="5" address="0x63937fc0deb046c254a940bd06e5f69822d919a0" id="ga">Government Agent</option>
+    <option value="6" address="0xccc1a488667e42b2644a227ec15a86a4e6880d91" id="sp">Service Provider</option>
+  </select>
+  </div>
+  
+</form >
+<br>
+                    <div class="form-group" >
+                 <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                      <input type="email" id="email" class="form-control" placeholder="Your Email" value="" maxlength="40" />
+                    </div>
+                </div>
+                <br/>
+                <div  class="form-group" class="center-block">
+                 <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                 <input type="password" id="pass" class="form-control" placeholder="Your Password" maxlength="15" />
+                    </div>
+                   
+                </div>
+                
+                <div class="form-group">
+                 <hr />
+                 <button type="button" class="btn btn-block btn-primary" onclick="Login()" name="btn-login">Sign In</button>
+                 
+                 <hr />
+                </div>
+            
+       
+        </form>
+        </div>
+        <!-- End of Login form --> 
+    </div>
+</div>
+</div>
+ 
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Authority Portal</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <style>
+    body {
+      padding-top: 1em;
+    }	
+  </style> 
+  <div class="container">
+  <h2>Welcome, Authority</h2>   <p align="right" style="padding-right: 220px;"> <a href="Login.html"><b>LogOut</b></a></p>
+    <div class="row">
+      <div class="col-md-2" >
+        <nav class="class="navbar navbar-light" style="background-color: #e3f2fd;">
+          <ul class="nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" onclick="App.getPendingCitizens()" href="#" role="button" aria-haspopup="true" id="dropdown" aria-expanded="false">
+                Citizen
+              </a>
+              <div class="dropdown-menu" >
+                <a class="dropdown-item" id="cit1" onclick='App.getCitizenDetailsforauth("0xEc5F7a1ff1935E63c09d6BCC4441209D2e6AFA94")' href="#"></a>
+                <a class="dropdown-item" id="cit2" onclick='App.getCitizenDetailsforauth("0x7e109703e3eb3f8bfe85508b69c9e1802ca52e37")' href="#"></a>
+              </div>
+
+            </li>	
+
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+    <br>
+    <div class="col-md-6">
+
+      <form>
+        <fieldset disabled>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="Name" id="Name" class="form-control" >
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Email</label>
+            <input type="Email" id="Email" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Mobile</label>
+            <input type="Text" id="Phone" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Address</label>
+            <input type="Text" id="Addr" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">DOB</label>
+            <input type="Text" id="DOB" class="form-control" >
+
+          </div>
+          </fieldset>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Aadhar number</label>
+            <input type="text" id="AadharNumber" class="form-control" >
+          </div>
+
+          <fieldset disabled>
+          <div class="form-group">
+            <label for="exampleInputPassword1">PAN number</label>
+            <input type="Text" id="panNumber" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Voter Id</label>
+            <input type="Text" id="voterId" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Passport Number</label>
+            <input type="Text" id="passportNumber" class="form-control" >
+          </div>
+          </fieldset>
+          <div class="form-group">
+         <div class="form-group">
+          <button type="button" onclick='App.putCitizenAadhar()' class="btn btn-primary">Validate</button>
+        </div>
+        </div>
+        
+    </form>
+  </div>
+  <div>
+
+  </div>
+
+</div>
+</div>
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+</html>

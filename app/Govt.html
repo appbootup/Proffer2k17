@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Govt. Authority</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+function Getselection()
+{
+	//alert(123);
+	page = document.getElementById("inlineFormCustomSelect");
+	option = page.options[page.selectedIndex].value;
+	if (option == 1){
+		document.getElementById("email").value = "user@blockchain.io";
+		document.getElementById("pass").value = "user@blockchain.io";}
+		//document.location = "User.html";}
+	else if (option == 2){
+		document.getElementById("email").value = "authority@blockchain.io";
+		document.getElementById("pass").value = "authority@blockchain.io";}
+		//document.location = "Authorizer.html";}
+	else if (option == 3){
+		document.getElementById("email").value = "govtauthority@blockchain.io";
+		document.getElementById("pass").value = "govtauthority@blockchain.io";}
+		//document.location = "Govt.html";}
+	//alert(option);
+	else if (option == 4){
+		document.getElementById("email").value = "serviceprovider@blockchain.io";
+		document.getElementById("pass").value = "serviceprovider@blockchain.io";}
+}
+
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    title: {
+        text: "Daily KYC Analysis"
+    },
+    axisX: {
+        valueFormatString: "DDD",
+        minimum: new Date(2017, 1, 5, 23),
+        maximum: new Date(2017, 1, 12, 1)
+    },
+    axisY: {
+        title: "Number of KYC Requests"
+    },
+    legend: {
+        verticalAlign: "top",
+        horizontalAlign: "right",
+        dockInsidePlotArea: true
+    },
+    toolTip: {
+        shared: true
+    },
+    data: [{
+        name: "Received",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(40,175,101,0.6)",
+        markerSize: 0,
+        dataPoints: [
+            { x: new Date(2017, 1, 6), y: 220 },
+            { x: new Date(2017, 1, 7), y: 120 },
+            { x: new Date(2017, 1, 8), y: 144 },
+            { x: new Date(2017, 1, 9), y: 162 },
+            { x: new Date(2017, 1, 10), y: 129 },
+            { x: new Date(2017, 1, 11), y: 109 },
+            { x: new Date(2017, 1, 12), y: 129 }
+        ]
+    },
+    {
+        name: "Approved",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(0,75,141,0.7)",
+        markerSize: 0,
+        dataPoints: [
+            { x: new Date(2017, 1, 6), y: 100 },
+            { x: new Date(2017, 1, 7), y: 60 },
+            { x: new Date(2017, 1, 8), y: 59 },
+            { x: new Date(2017, 1, 9), y: 90 },
+            { x: new Date(2017, 1, 10), y: 83},
+            { x: new Date(2017, 1, 11), y: 55 },
+            { x: new Date(2017, 1, 12), y: 62 }
+        ]
+    },
+    {
+        name: "Rejected",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(200,30,30,0.6)",
+        markerSize: 0,
+        dataPoints: [
+            { x: new Date(2017, 1, 6), y: 20 },
+            { x: new Date(2017, 1, 7), y: 10 },
+            { x: new Date(2017, 1, 8), y: 30 },
+            { x: new Date(2017, 1, 9), y: 24 },
+            { x: new Date(2017, 1, 10), y: 13 },
+            { x: new Date(2017, 1, 11), y: 19 },
+            { x: new Date(2017, 1, 12), y: 30 }
+        ]
+    }]
+});
+chart.render();
+
+var chart2 = new CanvasJS.Chart("chartContainer2", {
+    theme: "dark2",
+    exportFileName: "Doughnut Chart",
+    exportEnabled: true,
+    animationEnabled: true,
+    title:{
+        text: "Reported Flawed KYC process"
+    },
+    legend:{
+        cursor: "pointer",
+        itemclick: explodePie
+    },
+    data: [{
+        type: "doughnut",
+        innerRadius: 90,
+        showInLegend: true,
+        toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+        indexLabel: "{name} - #percent%",
+        dataPoints: [
+            { y: 450, name: "Aadhar Authority A" },
+            { y: 120, name: "Aadhar authority B" },
+            { y: 300, name: "Passport Authority" },
+            { y: 800, name: "Pan Card Authority" },
+            { y: 150, name: "Voter Card Authority" },
+            { y: 150, name: "Driving Liscense Authority"},
+            { y: 250, name: "RationCard Authority" }
+        ]
+    }]
+});
+chart2.render();
+
+function explodePie (e) {
+    if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+        e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+    } else {
+        e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+    }
+    e.chart.render();
+}
+
+}
+</script>
+</head>
+<body class="container">
+  <h2>Welcome, Govt. Authority</h2> <p align="right" style="padding-right: 220px;"> <a href="Login.html"><b>LogOut</b></a></p>
+<br>
+<div class="demo-bootstrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" id="demoContainer" style="height: auto">
+                <style type="text/css">
+#accountForm {
+    margin-top: 15px;
+}
+</style>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#info-tab" data-toggle="tab">Assign Authorization<i class="fa"></i></a></li>
+    <li><a href="#address-tab" data-toggle="tab">Revoke Authorization<i class="fa"></i></a></li>
+     <li><a href="#address-tab2" data-toggle="tab">Revoke KYC<i class="fa"></i></a></li>
+     <li><a href="#address-tab3" data-toggle="tab">Dasboard<i class="fa"></i></a></li>
+</ul>
+
+<form id="accountForm" method="#" class="form-horizontal">
+    <div class="tab-content">
+		
+      <div class="tab-pane active" id="info-tab">
+        <div class="form-group">
+                <label class="col-xs-3 control-label">Service</label>
+                <div class="col-xs-5">
+                    <select class="form-control" name="service1" id="service1">
+                        <option value="">Select a service</option>
+                        <option value="1">Aadhaar service (0x23ksdf9asdfasdfsadfsdf98asd98f)</option>
+                        <option value="2">PAN service (0x23ksdf98ad2342342k3k234f98asd98f)</option>
+                        <option value="3">Election service (0x23asdf9898sdfd9fasas234234sd98f)</option>
+                        <option value="4">Passport service (0x23ksdf9823889s98dfu9asdfasd9dff)</option>
+                    </select>
+                </div>
+        </div>
+
+	
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Authority</label>
+                <div class="col-xs-5">
+                    <select class="form-control" name="authority1" id="authority1">
+                        <option value="">Select a authority</option>
+                        <option value="0x143a18228298e7a38427861a2840dbf061e3fc49">Authority 1 (0x23ksdf98adsf9asdf98asd98f)</option>
+                        <option value="0x18dd183cf34c19c80725f7430448246ade19b9f4">Authority 2 (0x23ksdf98adsf9234dsf98asd98f)</option>
+                        <option value="0x88fd68b73da1a0bd9dcf9b24d86e95584e2de2aa">Authority 3 (0x23asdf9898sdfd9fasdf98asd98f)</option>
+                        <option value="0x42ddec32256fc6f3ab97552bcde836fa15903e07">Authority 4 (0x23ksdf9823889s98dfu9asdfasd98f)</option>
+                    </select>
+                </div>
+            </div>
+            
+		<div class="form-group" style="margin-top: 15px;">
+        <div class="col-xs-5 col-xs-offset-3">
+            <button type="button" onclick="App.setAuthorization()" class="btn btn-default">Authorize</button>
+        </div>
+        </div>
+         <div id="success" style="display: none;" class="alert alert-success" role="alert">
+<strong>Great!</strong> You have successfully authorized.
+</div>
+    </div>
+
+
+<!--End Info-->
+
+        <div class="tab-pane" id="address-tab">
+			
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Service</label>
+                <div class="col-xs-5">
+                     <select class="form-control" name="service2" id="service2">
+                        <option value="">Select a service</option>
+                        <option value="1">Aadhaar service (0x23ksdf9asdfasdfsadfsdf98asd98f)</option>
+                        <option value="2">Passport service (0x23ksdf98ad2342342k3k234f98asd98f)</option>
+                        <option value="3">Election service (0x23asdf9898sdfd9fasas234234sd98f)</option>
+                        <option value="4">PAN service (0x23ksdf9823889s98dfu9asdfasd9dff)</option>
+                    </select>
+                </div>
+            </div>
+
+	
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Authority</label>
+                <div class="col-xs-5">
+                     <select class="form-control" name="authority2" id="authority2">
+                       <option value="">Select a authority</option>
+                        <option value="0x143a18228298e7a38427861a2840dbf061e3fc49">Authority 1 (0x23ksdf98adsf9asdf98asd98f)</option>
+                        <option value="0x18dd183cf34c19c80725f7430448246ade19b9f4">Authority 2 (0x23ksdf98adsf9234dsf98asd98f)</option>
+                        <option value="0x88fd68b73da1a0bd9dcf9b24d86e95584e2de2aa">Authority 3 (0x23asdf9898sdfd9fasdf98asd98f)</option>
+                        <option value="0x42ddec32256fc6f3ab97552bcde836fa15903e07">Authority 4 (0x23ksdf9823889s98dfu9asdfasd98f)</option>
+                    </select>
+                </div>
+            </div>
+            
+    <div class="form-group" style="margin-top: 15px;">
+        <div class="col-xs-5 col-xs-offset-3">
+            <button type="button" onclick="App.revokeAuthorization()" class="btn btn-default">Revoke</button>
+        </div>
+    </div>
+     <div id="success1" style="display: none;" class="alert alert-warning" role="alert">
+<strong>Yes!</strong> Revoke is successful.
+</div>
+    
+ </div>
+    
+    <!--Revoke user KYC-->
+    <div class="tab-pane" id="address-tab2">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Identity</label>
+                <div class="col-xs-5">
+                     <select class="form-control" name="identity" id="identity">
+                        <option value="">Select ID</option>
+                        <option value="AA">Aadhaar (0x23ksdf9asdfasdfsadfsdf98asd98f)</option>
+                        <option value="PA">Passport (0x23ksdf98ad2342342k3k234f98asd98f)</option>
+                        <option value="EA">Election (0x23asdf9898sdfd9fasas234234sd98f)</option>
+                        <option value="PANA">PAN (0x23ksdf9823889s98dfu9asdfasd9dff)</option>
+                         <option selected="selected" value="PANA">KYC (0x23ksdf9823889s98dfu9asdfasd9dff)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">User</label>
+                <div class="col-xs-5">
+                    <input class="form-control mr-sm-2" id="userAddress" type="text" placeholder="User Public Address">
+                    </select>
+                </div>
+            </div>
+        <div class="form-group" style="margin-top: 15px;">
+        <div class="col-xs-5 col-xs-offset-3">
+            <button type="button" onclick="App.revokeKYC()" class="btn btn-default">Revoke</button>
+        </div>
+        </div>
+    </div>
+    <!--Dashboard user KYC-->
+    <div class="tab-pane" id="address-tab3">
+           
+
+            
+       <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+        <br/>
+        <div id="chartContainer2" style="height: 370px; width: 100%;margin-top:10px "></div>
+    </div>
+    
+
+    </div>
+
+   
+</form>
+
+
+<!--
+<script>
+$(document).ready(function() {
+    $('#accountForm')
+        .formValidation({
+            framework: 'bootstrap',
+            // Only disabled elements are excluded
+            // The invisible elements belonging to inactive tabs must be validated
+            excluded: [':disabled'],
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                fullName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The full name is required'
+                        }
+                    }
+                },
+                company: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The company name is required'
+                        }
+                    }
+                },
+                address: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The address is required'
+                        }
+                    }
+                },
+                city: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The city is required'
+                        }
+                    }
+                }
+            }
+        })
+        .on('err.field.fv', function(e, data) {
+            // data.fv  The FormValidation instance
+
+            // Get the first invalid field
+            var $invalidFields = data.fv.getInvalidFields().eq(0);
+
+            // Get the tab that contains the first invalid field
+            var $tabPane     = $invalidFields.parents('.tab-pane'),
+                invalidTabId = $tabPane.attr('id');
+
+            // If the tab is not active
+            if (!$tabPane.hasClass('active')) {
+                // Then activate it
+                $tabPane.parents('.tab-content')
+                        .find('.tab-pane')
+                        .each(function(index, tab) {
+                            var tabId = $(tab).attr('id'),
+                                $li   = $('a[href="#' + tabId + '"][data-toggle="tab"]').parent();
+
+                            if (tabId === invalidTabId) {
+                                // activate the tab pane
+                                $(tab).addClass('active');
+                                // and the associated <li> element
+                                $li.addClass('active');
+                            } else {
+                                $(tab).removeClass('active');
+                                $li.removeClass('active');
+                            }
+                        });
+
+                // Focus on the field
+                $invalidFields.focus();
+            }
+        });
+});
+</script>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+</html>

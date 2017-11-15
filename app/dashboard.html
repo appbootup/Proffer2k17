@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Govt. Dashboard</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    title: {
+        text: "Daily Email Analysis"
+    },
+    axisX: {
+        valueFormatString: "DDD",
+        minimum: new Date(2017, 1, 5, 23),
+        maximum: new Date(2017, 1, 12, 1)
+    },
+    axisY: {
+        title: "Number of Messages"
+    },
+    legend: {
+        verticalAlign: "top",
+        horizontalAlign: "right",
+        dockInsidePlotArea: true
+    },
+    toolTip: {
+        shared: true
+    },
+    data: [{
+        name: "Received",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(40,175,101,0.6)",
+        markerSize: 0,
+        dataPoints: [
+            { x: new Date(2017, 1, 6), y: 220 },
+            { x: new Date(2017, 1, 7), y: 120 },
+            { x: new Date(2017, 1, 8), y: 144 },
+            { x: new Date(2017, 1, 9), y: 162 },
+            { x: new Date(2017, 1, 10), y: 129 },
+            { x: new Date(2017, 1, 11), y: 109 },
+            { x: new Date(2017, 1, 12), y: 129 }
+        ]
+    },
+    {
+        name: "Sent",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(0,75,141,0.7)",
+        markerSize: 0,
+        dataPoints: [
+            { x: new Date(2017, 1, 6), y: 42 },
+            { x: new Date(2017, 1, 7), y: 34 },
+            { x: new Date(2017, 1, 8), y: 29 },
+            { x: new Date(2017, 1, 9), y: 42 },
+            { x: new Date(2017, 1, 10), y: 53},
+            { x: new Date(2017, 1, 11), y: 15 },
+            { x: new Date(2017, 1, 12), y: 12 }
+        ]
+    }]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body class="container">
+  <h2>Welcome, Govt. Authority</h2> <p align="right" style="padding-right: 220px;"> <a href="Login.html"><b>LogOut</b></a></p>
+<br>
+<div class="demo-bootstrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" id="demoContainer" style="height: auto">
+                <style type="text/css">
+#accountForm {
+    margin-top: 15px;
+}
+</style>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#info-tab" data-toggle="tab">Assign Authorization<i class="fa"></i></a></li>
+    <li><a href="#address-tab" data-toggle="tab">Revoke Authorization<i class="fa"></i></a></li>
+     <li><a href="#address-tab2" data-toggle="tab">Revoke KYC<i class="fa"></i></a></li>
+     <li><a href="#address-tab3" data-toggle="tab">Dasboard<i class="fa"></i></a></li>
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+</html>
