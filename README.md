@@ -55,13 +55,13 @@ Instant KYC can be done just by scanning the QR code
 ·        
 All the access rights and transactions are registered on the Blockchain 
 
-**Architecture**
+**Architecture **
 
-**Overall Process Flow
+**Overall Process Flow **
 
 <img src="https://github.com/knc331/Proffer2k17/blob/master/Overview.PNG" />
 
-**Find below the application architecture used for the development of PoC
+**Find below the application architecture used for the development of PoC**
 <img src="https://github.com/knc331/Proffer2k17/blob/master/Architecture.png" />
  
 ** **
@@ -87,29 +87,29 @@ All the access rights and transactions are registered on the Blockchain
 
 ** Application Screens (Not included in video)
  
- **User Welcome Page
+ **User Welcome Page**
 
 <img src="https://github.com/knc331/Proffer2k17/blob/master/Step1.PNG" />
  
- **Information Form
+ **Information Form**
  
  <img src="https://github.com/knc331/Proffer2k17/blob/master/Step2.PNG" />
  
- **Aaadhar Demographic Authentication using API
+ **Aaadhar Demographic Authentication using API**
  
  <img src="https://github.com/knc331/Proffer2k17/blob/master/Step3.PNG" />
 <img src="https://github.com/knc331/Proffer2k17/blob/master/Step4.PNG" />
 
-**User verification Successful
+**User verification Successful**
 
 <img src="https://github.com/knc331/Proffer2k17/blob/master/Step1.PNG" />
 
-**Demo Videos are live here
+**Demo Videos are live here**
+
+**Overall Demo Video**
+
+https://vimeo.com/242649041
 
 **InstaKYC - QR Code Scanner
 
 https://vimeo.com/242648802
-
-**Overall Demo Video
-
-https://vimeo.com/242649041
