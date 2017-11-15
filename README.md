@@ -102,7 +102,7 @@ All the access rights and transactions are registered on the Blockchain
 
 **User verification Successful**
 
-<img src="https://github.com/knc331/Proffer2k17/blob/master/Step1.PNG" />
+<img src="https://github.com/knc331/Proffer2k17/blob/master/Step5.PNG" />
 
 **Demo Videos are live here**
 
